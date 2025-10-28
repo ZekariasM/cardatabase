@@ -1,0 +1,38 @@
+# Gradle and build output
+.gradle/
+build/
+bin/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Generated build directories for submodules
+**/build/
+**/bin/
+**/out/
+
+# IDE metadata
+.classpath
+.project
+.settings/
+.apt_generated/
+.factorypath
+.springBeans
+.sts4-cache/
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.nb-gradle/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# OS-specific artifacts
+.DS_Store
+Thumbs.db
