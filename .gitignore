@@ -1,5 +1,6 @@
 # Gradle and build output
 .gradle/
+.gradle-user/
 build/
 bin/
 out/
