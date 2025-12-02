@@ -45,19 +45,23 @@ public class SecurityConfig {
 	public CorsConfigurationSource corsConfigurationSource() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowedOrigins(Arrays.asList("*"));
+		config.setAllowedOriginPatterns(Arrays.asList("*"));
 		config.setAllowedMethods(Arrays.asList("*"));
 		config.setAllowedHeaders(Arrays.asList("*"));
-		config.setAllowCredentials(false);
-		config.applyPermitDefaultValues();
-		
+		config.setAllowCredentials(true);
+		config.setMaxAge(3600L);
+
 		source.registerCorsConfiguration("/**", config);
 		return source;
-		
+
 	}
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		// We add this for front end development with unsecured version of our back end. 
+//		http.csrf((csrf) -> csrf.disable()).cors(withDefaults())
+//				.authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests.anyRequest().permitAll());
+		
 		http.csrf((csrf) -> csrf.disable())
 				.cors(withDefaults())
 				.sessionManagement((sessionManagement) -> sessionManagement
