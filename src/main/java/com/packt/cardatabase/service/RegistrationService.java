@@ -28,7 +28,7 @@ public class RegistrationService {
         AppUser newUser = new AppUser(
                 request.username(),
                 hashedPassword,
-                "User"
+                "USER"
         );
 
         AppUser savedUser = userRepository.save(newUser);
